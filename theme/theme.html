@@ -166,6 +166,25 @@
                 font-size: 10px;
                 text-transform: uppercase;
             }
+        
+        .caption.apple, .caption.android, .caption.wp7 {
+            padding-left: 18px;
+            background-repeat: no-repeat;
+            background-position: left 6px;
+        }
+        
+        .caption.apple {
+            background-image: url(http://static.tumblr.com/vowtf1z/mwblv9h8z/icon-apple-mac-os-x_1_.png);
+        }
+        
+        .caption.android {
+            background-image: url(http://static.tumblr.com/vowtf1z/sgRlv9hzm/android-icon_1_.png);
+        }
+        
+        .caption.wp7 {
+            background-image: url(http://static.tumblr.com/vowtf1z/FColv9hqg/wp7.png);
+            background-position: left 7px;
+        }
             
         a.install {
             width: 96px;
@@ -429,6 +448,10 @@
         margin-top: 31px;
     }
     
+    .post-tags {
+        display: none;
+    }
+    
     /*
      * Default rule; only Safari, Webkit, and Opera handle it without hacks.
      */
@@ -466,6 +489,20 @@
         $(function () {
             // Select current tag
             $('#tags>li>a[href="' + window.location.pathname + '"]').css('font-weight', 'bold');
+
+            // Add platform logo
+            $('span.post-tags').each(function () {
+                var $this = $(this);
+                var tags = $this.text().toLowerCase().split('|');
+                var platform = 'apple';
+                if ($.inArray('android', tags) > -1) {
+                    platform = 'android';
+                } else if ($.inArray('wp7', tags) > -1) {
+                    platform = 'wp7';
+                }
+
+                $('div.caption', $this.parent()).addClass(platform);
+            });
         });
     </script>
 </head>
@@ -586,11 +623,21 @@
 					</table>
 					{/block:Chat}
 					
-					{block:Photo}{block:Caption}<div class="caption"><div class="g-plus-one"><g:plusone align="right" size="small" href="{Permalink}"></g:plusone></div>{Caption}</div>{/block:Caption}{/block:Photo}
+					{block:Photo}
+                        {block:Caption}
+                        <div class="caption">
+                            <div class="g-plus-one">
+                                <g:plusone align="right" size="small" href="{Permalink}"></g:plusone>
+                            </div>
+                            {Caption}
+                        </div>
+                        {/block:Caption}
+                    {/block:Photo}
 					{block:Audio}{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}{/block:Audio}
 					{block:Video}{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}{/block:Video}
 					{block:Link}{block:Description}<div class="caption">{Description}</div>{/block:Description}{/block:Link}
 					{block:Quote}{block:Source}<div class="caption">{Source}</div>{/block:Source}{/block:Quote}
+                    <span class="post-tags">{block:Tags}{Tag}|{block:Tags}</span>
 				</div>					
 				{block:PermalinkPage}
                 {block:IfDisqusShortname}
