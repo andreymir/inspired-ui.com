@@ -255,7 +255,7 @@
                 #container .box {
                     margin: 31px;
                     width: 225px;
-                    float: left;
+                    vertical-align: top;
                 }
                 
                 #container .timestamp,
@@ -461,20 +461,6 @@
     </style>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
     <script src="http://static.tumblr.com/thpaaos/Oznkoyc5z/jquery.scale.js"></script>
-    <script src="http://desandro.github.com/masonry/jquery.masonry.min.js"></script>
-    <script type="text/javascript">
-    {block:IndexPage}
-        $(function() {
-            var $posts = $('#allposts');
-            $posts.imagesLoaded(function() {
-                $posts.masonry({
-                    itemSelector: '.box',
-                    isAnimated: false
-                });
-            });
-        });
-    {/block:IndexPage}
-    </script>
 </head>
 <body>
     {block:SearchPage}
@@ -540,7 +526,7 @@
         
         <div class="posts" id="allposts">
             {block:Posts}
-            <div class="box">
+            <div class="box inline-block">
 				<div class="inner-box">
 					{block:Photo}
 					{block:IndexPage}<a href="{Permalink}">{/block:IndexPage}
