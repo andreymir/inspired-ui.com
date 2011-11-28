@@ -62,11 +62,11 @@
                 margin: 0;
                 margin-top: 30px;
                 background-color: #cfcfcf;
+                background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#EFEFEF), to(#CFCFCF));
             }
             
             #sidebar .block {
                 color: #238CCC;
-                background: #0D5995;
                 padding: 6px 20px;
                 margin: 0;
                 background-color: #efefef;
@@ -595,9 +595,11 @@
         
         <div id="sidebar">
             <h3 class="block-title round-top">
-                <script type="text/javascript">                    function postCount(data) { postCount = data && (postCount = data.response) && (postCount = postCount.blog) && (postCount = postCount.posts) || 0; }</script>
-                <script type="text/javascript" src="//api.tumblr.com/v2/blog/inspired-ui.com/info?api_key=aL7rcud5nU6jHkBPn4GZ4tO9a8pnXgfjbYtXLpSsd6MYFDH7h0&jsonp=postCount"></script>
-                Patterns: <script type="text/javascript">                                  document.write(postCount);</script>
+                <a href="/">
+                    <script type="text/javascript">                    function postCount(data) { postCount = data && (postCount = data.response) && (postCount = postCount.blog) && (postCount = postCount.posts) || 0; }</script>
+                    <script type="text/javascript" src="//api.tumblr.com/v2/blog/inspired-ui.com/info?api_key=aL7rcud5nU6jHkBPn4GZ4tO9a8pnXgfjbYtXLpSsd6MYFDH7h0&jsonp=postCount"></script>
+                    Patterns: <script type="text/javascript">                                  document.write(postCount);</script>
+                </a>
             </h3>
             <div class="block round-bottom">
                 <ul id="tags">
