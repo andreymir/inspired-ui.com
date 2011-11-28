@@ -42,26 +42,52 @@
         
         #sidebar {
             float: left;
-            margin: 30px;
-            margin-right: 0;
-            width: 160px;
-            min-height: 300px;
-        	background-color: #efefef;
+            width: 155px;
         }
-        
-        #tags {
-            list-style: none inside;
-            font-size: 100%;
-            padding: 0;
-            margin: 0;
-            margin-top: 15px;
-            margin-left: 20px;
+            #sidebar ul {
+                list-style: none inside;
+                margin: 0;
+                padding: 0;
+            }
+            
+            #sidebar ul li {
+                margin: 5px 0;
+            }
+            
+            #sidebar .block-title {
+                color: #238CCC;
+                font-weight: bold;
+                padding: 10px 20px;
+                font-size: 1.2em;
+                margin: 0;
+                margin-top: 30px;
+                background-color: #cfcfcf;
+            }
+            
+            #sidebar .block {
+                color: #238CCC;
+                background: #0D5995;
+                padding: 6px 20px;
+                margin: 0;
+                background-color: #efefef;
+            }
+            
+        .subscribe-buttons {
+            
         }
-        
-        #tags li {
-            margin: 5px;
-            padding: 0;
-        }
+            .subscribe-buttons a {
+                width: 32px;
+                height: 32px;
+                margin-right: 5px;
+            }
+            
+            .subscribe-buttons .rss {
+                background: url("http://static.tumblr.com/vowtf1z/HUrlvduda/feed-32x32.png") no-repeat;
+            }
+            
+            .subscribe-buttons .twitter {
+                background: url("http://static.tumblr.com/vowtf1z/Q7plvduhx/twitter-32x32.png") no-repeat;
+            }
         
         #contacts {
             margin-left: 5px;
@@ -70,7 +96,7 @@
             }
         
         #container #allposts.posts {
-            margin-left: 250px;
+            margin-left: 200px;
             clear: none;
         }
         
@@ -450,9 +476,13 @@
      
     .pagination {
         clear: both;
-        margin-left: 250px;
+        margin-left: 200px;
         padding-left: 31px;
     }
+        .pagination .current_page {
+            color: #238CCC;
+            font-weight: bold;
+        }
     
     .page-pagination {
         margin-top: 31px;
@@ -460,6 +490,24 @@
     
     .post-tags {
         display: none;
+    }
+    
+    .round-top {
+        -webkit-border-top-left-radius: 4px;
+        -webkit-border-top-right-radius: 4px;
+        -moz-border-radius-topleft: 4px;
+        -moz-border-radius-topright: 4px;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+    
+    .round-bottom {
+        -webkit-border-bottom-left-radius: 4px;
+        -webkit-border-bottom-right-radius: 4px;
+        -moz-border-radius-bottomleft: 4px;
+        -moz-border-radius-bottomright: 4px;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
     }
     
     /*
@@ -546,39 +594,57 @@
         </div>
         
         <div id="sidebar">
-            <ul id="tags">
-                <li><a href="/tagged/activity">Activity</a></li>
-            	<li><a href="/tagged/capture">Capture</a></li>
-            	<li><a href="/tagged/check_in">Check-in</a></li>
-            	<li><a href="/tagged/comments">Comments</a></li>
-            	<li><a href="/tagged/compose">Compose</a></li>
-                <li><a href="/tagged/coverflow">Coverflow</a></li>
-            	<li><a href="/tagged/custom_tabs">Custom Tabs</a></li>
-            	<li><a href="/tagged/dashboard">Dashboard</a></li>
-                <li><a href="/tagged/details">Details</a></li>
-            	<li><a href="/tagged/empty_data_sets">Empty Data Sets</a></li>
-            	<li><a href="/tagged/find_friends">Find Friends</a></li>
-            	<li><a href="/tagged/lists">Lists</a></li>
-            	<li><a href="/tagged/logins">Logins</a></li>
-            	<li><a href="/tagged/maps">Maps</a></li>
-            	<li><a href="/tagged/navigation">Navigation</a></li>
-            	<li><a href="/tagged/notifications">Notifications</a></li>
-            	<li><a href="/tagged/popovers">Popovers</a></li>
-            	<li><a href="/tagged/profiles">Profiles</a></li>
-            	<li><a href="/tagged/search">Search</a></li>
-            	<li><a href="/tagged/settings">Settings</a></li>
-            	<li><a href="/tagged/share">Share</a></li>
-            	<li><a href="/tagged/signup">Sign Up</a></li>
-            	<li><a href="/tagged/sliders">Sliders</a></li>
-            	<li><a href="/tagged/splashscreens">Splashscreens</a></li>
-            	<li><a href="/tagged/venue">Venue Details</a></li>
-            	<li><a href="/tagged/walk_throughts">Walk throughts</a></li>				
-            </ul>  
-            <div style="margin-left: 30px; margin-bottom: 15px; margin-top:25px;">
-                <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://inspired-ui.com" data-counturl="http://inspired-ui.com" data-text="Find your inspiration. Collection of mobile UI patterns. Check it out on" data-count="horizontal" data-via="inspiredui">Tweet</a>
-                <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+            <h3 class="block-title round-top">
+                <script type="text/javascript">                    function postCount(data) { postCount = data && (postCount = data.response) && (postCount = postCount.blog) && (postCount = postCount.posts) || 0; }</script>
+                <script type="text/javascript" src="//api.tumblr.com/v2/blog/inspired-ui.com/info?api_key=aL7rcud5nU6jHkBPn4GZ4tO9a8pnXgfjbYtXLpSsd6MYFDH7h0&jsonp=postCount"></script>
+                Patterns: <script type="text/javascript">                                  document.write(postCount);</script>
+            </h3>
+            <div class="block round-bottom">
+                <ul id="tags">
+                    <li><a href="/tagged/activity">Activity</a></li>
+            	    <li><a href="/tagged/capture">Capture</a></li>
+            	    <li><a href="/tagged/check_in">Check-in</a></li>
+            	    <li><a href="/tagged/comments">Comments</a></li>
+            	    <li><a href="/tagged/compose">Compose</a></li>
+                    <li><a href="/tagged/coverflow">Coverflow</a></li>
+            	    <li><a href="/tagged/custom_tabs">Custom Tabs</a></li>
+            	    <li><a href="/tagged/dashboard">Dashboard</a></li>
+                    <li><a href="/tagged/details">Details</a></li>
+            	    <li><a href="/tagged/empty_data_sets">Empty Data Sets</a></li>
+            	    <li><a href="/tagged/find_friends">Find Friends</a></li>
+            	    <li><a href="/tagged/lists">Lists</a></li>
+            	    <li><a href="/tagged/logins">Logins</a></li>
+            	    <li><a href="/tagged/maps">Maps</a></li>
+            	    <li><a href="/tagged/navigation">Navigation</a></li>
+            	    <li><a href="/tagged/notifications">Notifications</a></li>
+            	    <li><a href="/tagged/popovers">Popovers</a></li>
+            	    <li><a href="/tagged/profiles">Profiles</a></li>
+            	    <li><a href="/tagged/search">Search</a></li>
+            	    <li><a href="/tagged/settings">Settings</a></li>
+            	    <li><a href="/tagged/share">Share</a></li>
+            	    <li><a href="/tagged/signup">Sign Up</a></li>
+            	    <li><a href="/tagged/sliders">Sliders</a></li>
+            	    <li><a href="/tagged/splashscreens">Splashscreens</a></li>
+            	    <li><a href="/tagged/venue">Venue Details</a></li>
+            	    <li><a href="/tagged/walk_throughts">Walk throughts</a></li>				
+                </ul>
             </div>
-           
+            <h3 class="block-title round-top">Subscribe</h3>
+            <div class="block round-bottom">
+                <div class="subscribe-buttons">
+                    <a href="{RSS}" title="RSS Feed" class="inline-block rss"></a>
+                    <a href="http://twitter.com/inspiredUI" title="Follow on Twitter" class="inline-block twitter"></a>
+                </div>
+                <br />
+                <div>
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://inspired-ui.com" data-counturl="http://inspired-ui.com" data-text="Find your inspiration. Collection of mobile UI patterns. Check it out on" data-count="horizontal" data-via="inspiredui">Tweet</a>
+                    <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+                </div>
+                <br />
+                <div>
+                    <g:plusone href="http://inspired-ui.com/"></g:plusone>
+                </div>
+            </div>
         </div>     
         
         
