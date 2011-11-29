@@ -61,8 +61,13 @@
                 font-size: 1em;
                 margin: 0;
                 margin-top: 30px;
-                background-color: #cfcfcf;
-                background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#EFEFEF), to(#CFCFCF));
+                background: #cfcfcf; /* Old browsers */
+                background: -moz-linear-gradient(top,  #efefef 0%, #cfcfcf 100%); /* FF3.6+ */
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#efefef), color-stop(100%,#cfcfcf)); /* Chrome,Safari4+ */
+                background: -webkit-linear-gradient(top,  #efefef 0%,#cfcfcf 100%); /* Chrome10+,Safari5.1+ */
+                background: -o-linear-gradient(top,  #efefef 0%,#cfcfcf 100%); /* Opera 11.10+ */
+                background: -ms-linear-gradient(top,  #efefef 0%,#cfcfcf 100%); /* IE10+ */
+                background: linear-gradient(top,  #efefef 0%,#cfcfcf 100%); /* W3C */
             }
             
             #sidebar .block {
@@ -96,7 +101,7 @@
             }
         
         #container #allposts.posts {
-            margin-left: 200px;
+            margin-left: 169px;
             clear: none;
         }
         
@@ -235,11 +240,10 @@
         #container {
             margin: 30px 5%;
             position: relative;
-            min-width: 890px;
+            min-width: 400px;
         }
                 
             #container .header {
-                width: 800px;
                 margin: 0 0 0 0px;
             }
 
@@ -308,8 +312,7 @@
                     }
                 
                 #container .box {
-                    margin: 31px;
-                    width: 225px;
+                    margin: 31px 0px 31px 62px;
                     vertical-align: top;
                 }
                 
@@ -474,72 +477,92 @@
         a.install { top: 65px; }
         {/block:SearchPage}
      
-    .pagination {
-        clear: both;
-        margin-left: 200px;
-        padding-left: 31px;
-    }
-        .pagination .current_page {
-            color: #238CCC;
-            font-weight: bold;
+        .pagination {
+            clear: both;
+            margin-left: 169px;
+            padding-left: 62px;
+        }
+            .pagination .current_page {
+                color: #238CCC;
+                font-weight: bold;
+            }
+    
+        .page-pagination {
+            margin-top: 31px;
         }
     
-    .page-pagination {
-        margin-top: 31px;
-    }
+        .post-tags {
+            display: none;
+        }
     
-    .post-tags {
-        display: none;
-    }
+        .round-top {
+            -webkit-border-top-left-radius: 4px;
+            -webkit-border-top-right-radius: 4px;
+            -moz-border-radius-topleft: 4px;
+            -moz-border-radius-topright: 4px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
     
-    .round-top {
-        -webkit-border-top-left-radius: 4px;
-        -webkit-border-top-right-radius: 4px;
-        -moz-border-radius-topleft: 4px;
-        -moz-border-radius-topright: 4px;
-        border-top-left-radius: 4px;
-        border-top-right-radius: 4px;
-    }
+        .round-bottom {
+            -webkit-border-bottom-left-radius: 4px;
+            -webkit-border-bottom-right-radius: 4px;
+            -moz-border-radius-bottomleft: 4px;
+            -moz-border-radius-bottomright: 4px;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
     
-    .round-bottom {
-        -webkit-border-bottom-left-radius: 4px;
-        -webkit-border-bottom-right-radius: 4px;
-        -moz-border-radius-bottomleft: 4px;
-        -moz-border-radius-bottomright: 4px;
-        border-bottom-left-radius: 4px;
-        border-bottom-right-radius: 4px;
-    }
-    
-    /*
-     * Default rule; only Safari, Webkit, and Opera handle it without hacks.
-     */
-    .inline-block {
-      position: relative;
-      display: -moz-inline-box; /* Ignored by FF3 and later. */
-      display: inline-block;
-    }
+        /*
+         * Default rule; only Safari, Webkit, and Opera handle it without hacks.
+         */
+        .inline-block {
+          position: relative;
+          display: -moz-inline-box; /* Ignored by FF3 and later. */
+          display: inline-block;
+        }
 
-    /*
-     * Pre-IE7 IE hack.  On IE, "display: inline-block" only gives the element
-     * layout, but doesn't give it inline behavior.  Subsequently setting display
-     * to inline does the trick.
-     */
-    * html .inline-block {
-      display: inline;
-    }
+        /*
+         * Pre-IE7 IE hack.  On IE, "display: inline-block" only gives the element
+         * layout, but doesn't give it inline behavior.  Subsequently setting display
+         * to inline does the trick.
+         */
+        * html .inline-block {
+          display: inline;
+        }
 
-    /*
-     * IE7-only hack.  On IE, "display: inline-block" only gives the element
-     * layout, but doesn't give it inline behavior.  Subsequently setting display
-     * to inline does the trick.
-     */
-    *:first-child+html .inline-block {
-      display: inline;
-    }
-     
+        /*
+         * IE7-only hack.  On IE, "display: inline-block" only gives the element
+         * layout, but doesn't give it inline behavior.  Subsequently setting display
+         * to inline does the trick.
+         */
+        *:first-child+html .inline-block {
+          display: inline;
+        }
+        
+        @media (max-width: 898px) {
+            #container {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+            
+            #container #allposts.posts {
+                margin-left: 160px;
+                padding-top: 16px; /* compensate #container .box margin */
+            }
+            
+            .pagination {
+                margin-left: 160px;
+                padding-left: 30px;
+            }
+            
+            #container .box {
+                margin: 15px 0 15px 30px;
+            }
+        }
+    </style>
+    <style type="text/css">
         {CustomCSS}
-         
-    {}
     </style>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
     <script src="http://static.tumblr.com/thpaaos/Oznkoyc5z/jquery.scale.js"></script>
@@ -709,9 +732,6 @@
 					{block:Photo}
                         {block:Caption}
                         <div class="caption">
-                            <div class="g-plus-one">
-                                <g:plusone align="right" size="small" href="{Permalink}"></g:plusone>
-                            </div>
                             {Caption}
                         </div>
                         {/block:Caption}
