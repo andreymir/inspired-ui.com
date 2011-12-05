@@ -7,7 +7,7 @@
     <title>{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
     <meta name="title" content="{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}" /> 
     <meta name="description" content="A collection of great mobile UI patterns" />
-    <meta name="author" content="@th3same and @andreymir" />
+    <meta name="author" content="Sergey Pakhandrin @th3same and Andrey Mironov @andreymir" />
     <meta name="keywords" content="mobile, patterns, UI, mobile apps, user interface, iphone, android" />
     <link rel="shortcut icon" href="{Favicon}" />
     <link rel="alternate" type="application/rss+xml" href="{RSS}" />
@@ -198,7 +198,7 @@
             .caption p {
                 padding: 3px 0;
             }
-    		
+        	
 			.caption a {
 				font-weight: bold;
 			}
@@ -207,6 +207,12 @@
                 font-size: 10px;
                 text-transform: uppercase;
             }
+			
+			.caption a.show-all {
+				display: none;
+				float: right;
+				padding: 3px;
+			}
         
         .caption.apple, .caption.android, .caption.wp7 {
             padding-left: 18px;
@@ -569,20 +575,48 @@
     <script type="text/javascript">
         $(function () {
             // Select current tag
-            $('#tags>li>a[href="' + window.location.pathname + '"]').css('font-weight', 'bold');
-
-            // Add platform logo
+			var tagName = /^\/tagged\/([^/]+)(\/|$)/i.exec(window.location.pathname);
+			if (tagName) {
+				tagName = tagName[1];
+				tagName = tagName.replace(/\+/g, '_');
+				$('#tags>li>a[href^="/tagged/' + tagName + '"]').css('font-weight', 'bold');
+			}
+			
             $('span.post-tags').each(function () {
                 var $this = $(this);
                 var tags = $this.text().toLowerCase().split('|');
-                var platform = 'apple';
+                
+				// Process platform tag
+            
+				var platform = 'apple';
                 if ($.inArray('android', tags) > -1) {
                     platform = 'android';
                 } else if ($.inArray('wp7', tags) > -1) {
                     platform = 'wp7';
                 }
+				
+				$('div.caption', $this.parent()).addClass(platform);
 
-                $('div.caption', $this.parent()).addClass(platform);
+				
+				// Process application tag
+				$.each(tags, function(index, tag) {
+					if (/^app (.*)$/i.test(tag)) {
+						var app = /^app (.*)$/i.exec(tag)[1];
+						if ($.inArray(app, tags)) {
+							tag = app;
+						}
+						tag = tag.toLowerCase();
+						
+						// Check not on the "Show all" page
+						if (window.location.pathname.toLowerCase().indexOf('/tagged/' + tag) == -1) {
+							$('a.show-all', $this.parent())
+								.attr('href', '/tagged/' + tag.replace(/ /, '_'))
+								//.attr('title', 'All "' + app + '" images')
+								.show();
+						}
+					}
+				});
+				
             });
         });
     </script>
@@ -627,6 +661,7 @@
             <div class="block round-bottom">
                 <ul id="tags">
                     <li><a href="/tagged/activity">Activity</a></li>
+                    <li><a href="/tagged/articles">Articles</a></li>
             	    <li><a href="/tagged/capture">Capture</a></li>
             	    <li><a href="/tagged/check_in">Check-in</a></li>
             	    <li><a href="/tagged/comments">Comments</a></li>
@@ -664,11 +699,7 @@
                 <div>
                     <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://inspired-ui.com" data-counturl="http://inspired-ui.com" data-text="Find your inspiration. Collection of mobile UI patterns. Check it out on" data-count="horizontal" data-via="inspiredui">Tweet</a>
                     <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
-                </div>
-                <br />
-                <div>
-                    <g:plusone size="medium" href="http://inspired-ui.com"></g:plusone>
-                </div>
+                </div>                
             </div>
         </div>     
         
@@ -732,6 +763,7 @@
 					{block:Photo}
                         {block:Caption}
                         <div class="caption">
+							<a href="#" title="All application images" class="show-all">&gt;&gt;</a>
                             {Caption}
                         </div>
                         {/block:Caption}
