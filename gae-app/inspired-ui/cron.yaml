@@ -1,0 +1,4 @@
+cron:
+- description: update post count value
+  url: /posts/update
+  schedule: every 30 minutes
