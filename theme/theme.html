@@ -78,6 +78,7 @@
             }
             
         .subscribe-buttons {
+            width: 125px;
             
         }
             .subscribe-buttons a {
@@ -87,11 +88,15 @@
             }
             
             .subscribe-buttons .rss {
-                background: url("http://static.tumblr.com/vowtf1z/HUrlvduda/feed-32x32.png") no-repeat;
+                background: url("http://static.tumblr.com/vowtf1z/Giglvtjds/rss.png") no-repeat;
             }
             
             .subscribe-buttons .twitter {
                 background: url("http://static.tumblr.com/vowtf1z/Q7plvduhx/twitter-32x32.png") no-repeat;
+            }
+            
+            .subscribe-buttons .gplus {
+                background: url("http://static.tumblr.com/vowtf1z/IHOlvtjt1/gprofile_button-32.png") no-repeat;
             }
         
         #contacts {
@@ -198,8 +203,8 @@
             .caption p {
                 padding: 3px 0;
             }
-        	
-			.caption a {
+            
+    		.caption a {
 				font-weight: bold;
 			}
         
@@ -212,6 +217,7 @@
 				display: none;
 				float: right;
 				padding: 3px;
+                color: #999999;
 			}
         
         .caption.apple, .caption.android, .caption.wp7 {
@@ -619,7 +625,7 @@
 				
             });
         });
-    </script>
+    </script>    
 </head>
 <body>
     {block:SearchPage}
@@ -689,11 +695,12 @@
             	    <li><a href="/tagged/walk_throughts">Walk throughts</a></li>				
                 </ul>
             </div>
-            <h3 class="block-title round-top">Subscribe Us</h3>
+            <h3 class="block-title round-top">Follow Us</h3>
             <div class="block round-bottom">
                 <div class="subscribe-buttons">
                     <a href="{RSS}" title="RSS Feed" class="inline-block rss"></a>
                     <a href="http://twitter.com/inspiredUI" title="Follow on Twitter" class="inline-block twitter"></a>
+                    <a href="https://plus.google.com/106093281651739143736" title="Follow on Google Plus" class="inline-block gplus"></a>
                 </div>
                 <br />
                 <div>
@@ -763,7 +770,7 @@
 					{block:Photo}
                         {block:Caption}
                         <div class="caption">
-							<a href="#" title="All application images" class="show-all">&gt;&gt;</a>
+							<a href="#" title="All application images" class="show-all">See All</a>
                             {Caption}
                         </div>
                         {/block:Caption}
