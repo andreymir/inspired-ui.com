@@ -659,9 +659,8 @@
         <div id="sidebar">
             <h3 class="block-title round-top">
                 <a href="/">
-                    <script type="text/javascript">                        function postCount(data) { postCount = data && (postCount = data.response) && (postCount = postCount.blog) && (postCount = postCount.posts) || 0; }</script>
-                    <script type="text/javascript" src="//api.tumblr.com/v2/blog/inspired-ui.com/info?api_key=aL7rcud5nU6jHkBPn4GZ4tO9a8pnXgfjbYtXLpSsd6MYFDH7h0&jsonp=postCount"></script>
-                    Patterns: <script type="text/javascript">                                  document.write(postCount);</script>
+                    <script type="text/javascript" src="http://inspired-ui.appspot.com/posts"></script>
+                    Patterns: <script type="text/javascript">if (postCount) {document.write(postCount);}</script>
                 </a>
             </h3>
             <div class="block round-bottom">
