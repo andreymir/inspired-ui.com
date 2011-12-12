@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/libs/modernizr-2.0.6.min.js"></script>
+    <style type="text/css">
+        body {
+            color: #000;
+        }
+        
+        body a {
+            color: #000;
+        }
+        
+        #container {
+            margin: 80px 50px;
+        }
+        
+        header {
+            position: relative;
+            min-width: 705px;
+        }
+        
+        header > a {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        header .header-line {
+            background: url("img/header-line.png") repeat-x;
+            height: 57px;
+            margin-left: 248px;
+            margin-right: 457px;
+        }
+        
+        header .header-line-end {
+            position: absolute;
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 57px;
+            background: url("img/header-line-end.png") no-repeat;
+            width: 457px;
+        }
+        
+        header .header-icons {
+            position: absolute;
+            top: -7px;
+            right: 95px;
+        }
+        
+        header .header-icons div, header .header-icons a {
+            display: inline-block;
+            width: 46px;
+            height: 46px;
+            margin-top: 7px;
+            vertical-align: top;
+        }
+        
+        header .header-icons div.rss-icon {
+            background: url("img/ico_rss.png");
+        }
+        
+        header .header-icons div.twitter-icon {
+            background: url("img/ico_twitter.png");
+        }
+        
+        header .header-icons div.google-plus-icon {
+            background: url("img/ico_g.png");
+        }
+        
+        #sidebar {
+            float: left;
+            width: 201px;
+            height: 710px;
+            background: url("img/sidebar-bg.png") no-repeat;
+        }
+        
+        #sidebar nav {
+            margin-top: 36px;
+            font-size: 14px;
+            font-family: Comic Sans MS;
+            line-height: 24px;
+        }
+        
+        #sidebar ul li {
+            margin-top: -12px;
+            padding: 6px 0 6px 32px;
+        }
+        
+        #sidebar ul li.active {
+            background: url("img/menu_active.png") no-repeat 0 0;
+        }
+        
+        #sidebar ul li a {
+            text-decoration: none;
+        }
+        
+        #sidebar ul li a:hover {
+            text-decoration: underline;
+        }
+        
+        #sidebar ul li.active a {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <header>
+            <a href="/">
+                <img src="img/logo.png" alt="logo" /></a>
+            <div class="header-line">
+            </div>
+            <div class="header-icons">
+                <div class="rss-icon">
+                </div>
+                <div class="twitter-icon">
+                </div>
+                <div class="google-plus-icon">
+                </div>
+            </div>
+            <div class="header-line-end">
+            </div>
+            <div class="header-icons">
+                <a href="#" class="rss-icon"></a><a href="#" class="twitter-icon"></a><a href="#"
+                    class="google-plus-icon"></a>
+            </div>
+        </header>
+        <section>
+            <aside id="sidebar">
+                <nav>
+                    <ul id="tags">
+                        <li><a href="/tagged/activity">Activity</a></li>
+                        <li><a href="/tagged/articles">Articles</a></li>
+                        <li><a href="/tagged/capture">Capture</a></li>
+                        <li><a href="/tagged/check_in">Check-in</a></li>
+                        <li class="active"><a href="/tagged/comments">Comments</a></li>
+                        <li><a href="/tagged/compose">Compose</a></li>
+                        <li><a href="/tagged/coverflow">Coverflow</a></li>
+                        <li><a href="/tagged/custom_tabs">Custom Tabs</a></li>
+                        <li><a href="/tagged/dashboard">Dashboard</a></li>
+                        <li><a href="/tagged/details">Details</a></li>
+                        <li><a href="/tagged/empty_data_sets">Empty Data Sets</a></li>
+                        <li><a href="/tagged/find_friends">Find Friends</a></li>
+                        <li><a href="/tagged/lists">Lists</a></li>
+                        <li><a href="/tagged/logins">Logins</a></li>
+                        <li><a href="/tagged/maps">Maps</a></li>
+                        <li><a href="/tagged/navigation">Navigation</a></li>
+                        <li><a href="/tagged/notifications">Notifications</a></li>
+                        <li><a href="/tagged/popovers">Popovers</a></li>
+                        <li><a href="/tagged/profiles">Profiles</a></li>
+                        <li><a href="/tagged/search">Search</a></li>
+                        <li><a href="/tagged/settings">Settings</a></li>
+                        <li><a href="/tagged/share">Share</a></li>
+                        <li><a href="/tagged/signup">Sign Up</a></li>
+                        <li><a href="/tagged/sliders">Sliders</a></li>
+                        <li><a href="/tagged/splashscreens">Splashscreens</a></li>
+                        <li><a href="/tagged/venue">Venue Details</a></li>
+                        <li><a href="/tagged/walk_throughts">Walk throughts</a></li>
+                    </ul>
+                </nav>
+            </aside>
+            <div class="posts" id="allposts">
+            </div>
+        </section>
+        <footer>
+        </footer>
+    </div>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var $icons = $('header .header-icons div');
+            var $icon_links = $('header .header-icons a').each(function (index) {
+                $(this).data('icon-element', $icons.eq(index));
+            });
+
+            // Header icons slide animation 
+            $icon_links.hover(
+                function () {
+                    $(this).data('icon-element').animate({ marginTop: '-=7' }, 200);
+                },
+                function () {
+                    $(this).data('icon-element').animate({ marginTop: '+=7' }, 200);
+                }
+            );
+        }); 
+    </script>
+    <script type="text/javascript">
+        var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
+        // Change UA-XXXXX-X to be your site's ID 
+        (function (d, t) {
+            var g = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+            g.async = 1;
+            g.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g, s);
+        } (document, 'script')); 
+    </script>
+</body>
+</html>
