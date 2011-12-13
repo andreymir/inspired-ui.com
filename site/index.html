@@ -11,19 +11,43 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="favicon.png" />
     <link rel="stylesheet" href="css/style.css">
     <script type="text/javascript" src="js/libs/modernizr-2.0.6.min.js"></script>
     <style type="text/css">
         body {
             color: #000;
+            font-family: Comic Sans MS;
+            font-size: 14px;
         }
         
         body a {
             color: #000;
         }
         
+        .post-counter {
+            background: url("img/count-bg.png") no-repeat scroll 0 0 transparent;
+            color: #FFFFFF;
+            font-weight: bold;
+            height: 84px;
+            left: 355px;
+            position: absolute;
+            top: 0;
+            width: 129px;
+        }
+        
+        .post-counter .label {
+            left: 25px;
+            position: absolute;
+            top: 50px;
+            -moz-transform: rotate(-3deg);
+            -webkit-transform: rotate(-3deg);
+            transform: rotate(10deg);
+        }
+        
         #container {
-            margin: 80px 50px;
+            margin: 75px 45px;
+            margin-bottom: 20px;
         }
         
         header {
@@ -80,43 +104,147 @@
             background: url("img/ico_g.png");
         }
         
-        #sidebar {
+        .sidebar {
             float: left;
-            width: 201px;
+            width: 210px;
             height: 710px;
             background: url("img/sidebar-bg.png") no-repeat;
         }
         
-        #sidebar nav {
+        .sidebar nav {
             margin-top: 36px;
-            font-size: 14px;
-            font-family: Comic Sans MS;
             line-height: 24px;
         }
         
-        #sidebar ul li {
+        .sidebar ul li {
             margin-top: -12px;
             padding: 6px 0 6px 32px;
         }
         
-        #sidebar ul li.active {
-            background: url("img/menu_active.png") no-repeat 0 0;
+        .sidebar ul li.active {
+            background: url("img/menu_active.png") no-repeat -12px 1px;
         }
         
-        #sidebar ul li a {
+        .sidebar ul li a {
             text-decoration: none;
         }
         
-        #sidebar ul li a:hover {
+        .sidebar ul li a:visited {
+            color: #000;
+        }
+        
+        .sidebar ul li a:hover {
             text-decoration: underline;
         }
         
-        #sidebar ul li.active a {
+        .sidebar ul li.active a {
             color: #fff;
+        }
+        
+        .posts {
+            margin-left: 240px;
+            min-height: 650px;
+            padding-top: 30px;
+        }
+        
+        .posts .post {
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 22px;
+            margin-bottom: 25px;
+        }
+        
+        .post .post-frame {
+            width: 338px;
+            height: 498px;
+            background: url("img/post-frame.png") no-repeat;
+        }
+        
+        .post .post-info .logo {
+            float: left;
+            height: 24px;
+            margin-left: 4px;
+            margin-top: 1px;
+            width: 20px;
+        }
+        
+        .post .post-info .apple-logo {
+            background: url("img/apple-logo.png") no-repeat;
+        }
+        
+        .post .post-info .show-all {
+            background: url("img/show-all.png") no-repeat scroll 0 -8px transparent;
+            float: right;
+            margin-top: 8px;
+            padding-left: 30px;
+            padding-right: 2px;
+            text-decoration: none;
+        }
+        
+        .post .post-info .caption {
+            margin-left: 29px;
+            margin-right: 75px;
+            padding-top: 8px;
+        }
+        
+        .post .post-info .caption p {
+            margin: 0;
+        }
+        
+        .footer {
+            position: relative;
+            margin-left: 240px;
+            height: 100px;
+        }
+        
+        .footer .pagination {
+            position: absolute;
+            top: 30px;
+            left: 0;
+        }
+        
+        .footer .pagination a {
+            text-decoration: none;
+        }
+        
+        .footer .pagination a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer .footer-line {
+            position: absolute;
+            top: 0;
+            left: 1px;
+            right: 144px;
+            height: 58px;
+            background: url("img/footer-line.png") repeat-x;
+        }
+        
+        .footer .footer-line-end {
+            background: url("img/footer-line-end.png") no-repeat;
+            height: 58px;
+            position: absolute;
+            right: 0;
+            width: 144px;
+        }
+        
+        .footer .share {
+            position: absolute;
+            top: 68px;
+        }
+        
+        .footer .copyright {
+            font-size: 12px;
+            position: absolute;
+            right: 17px;
+            top: 68px;
         }
     </style>
 </head>
 <body>
+    <div class="post-counter">
+        <span class="label">250 Pttrns</span>
+    </div>
     <div id="container">
         <header>
             <a href="/">
@@ -138,15 +266,15 @@
                     class="google-plus-icon"></a>
             </div>
         </header>
-        <section>
-            <aside id="sidebar">
+        <div>
+            <aside class="sidebar">
                 <nav>
                     <ul id="tags">
                         <li><a href="/tagged/activity">Activity</a></li>
                         <li><a href="/tagged/articles">Articles</a></li>
                         <li><a href="/tagged/capture">Capture</a></li>
                         <li><a href="/tagged/check_in">Check-in</a></li>
-                        <li class="active"><a href="/tagged/comments">Comments</a></li>
+                        <li><a href="/tagged/comments">Comments</a></li>
                         <li><a href="/tagged/compose">Compose</a></li>
                         <li><a href="/tagged/coverflow">Coverflow</a></li>
                         <li><a href="/tagged/custom_tabs">Custom Tabs</a></li>
@@ -172,10 +300,45 @@
                     </ul>
                 </nav>
             </aside>
-            <div class="posts" id="allposts">
+            <section class="posts">
+                <div class="post">
+                    <div class="post-frame">
+                    </div>
+                    <div class="post-info">
+                        <div class="logo apple-logo">
+                        </div>
+                        <a class="show-all" href="#see-all">See all</a>
+                        <div class="caption">
+                            <p>
+                                Kliptomania</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="post">
+                    <div class="post-frame">
+                    </div>
+                </div>
+            </section>
+        </div>
+        <footer class="footer">
+            <div class="footer-line">
             </div>
-        </section>
-        <footer>
+            <div class="footer-line-end">
+            </div>
+            <div class="pagination">
+                <a href="/page/1">&lt;&nbsp;Previous</a> <a class="jump_page" href="/page/1">2</a>
+                <span class="current_page">3</span> <a class="jump_page" href="/page/3">4</a> <a
+                    class="jump_page" href="/page/4">5</a> <a class="jump_page" href="/page/5">6</a>
+                <a href="/page/3">Next&nbsp;&gt;</a>
+            </div>
+            <div class="share">
+                <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://inspired-ui.com"
+                    data-counturl="http://inspired-ui.com" data-text="Find your inspiration. Collection of mobile UI patterns. Check it out on"
+                    data-count="horizontal" data-via="inspiredui">Tweet</a>
+                <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+            </div>
+            <div class="copyright">
+                &copy;&nbsp;2011&nbsp;&mdash;&nbsp;Design by Paulart</div>
         </footer>
     </div>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
