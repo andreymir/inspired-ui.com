@@ -7,13 +7,22 @@
 <!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <title>{block:PostSummary}{PostSummary}&nbsp;&mdash;&nbsp;{/block:PostSummary}{Title}
+    </title>
+    <meta name="title" content="{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}" />
+    <meta name="description" content="A collection of great mobile UI patterns">
+    <meta name="author" content="Sergey Pakhandrin @th3same and Andrey Mironov @andreymir">
+    <meta name="keywords" content="mobile, patterns, UI, mobile apps, user interface, iphone, android" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="icon" href="favicon.png" />
-    <link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript" src="js/libs/modernizr-2.0.6.min.js"></script>
+    <meta property="og:url" content="http://inspired-ui.com/" />
+    <meta property="og:title" content="Mobile UI patterns | Find your inspiration" />
+    <meta property="og:description" content="A collection of mobile UI patterns." />
+    <meta name="google-site-verification" content="pdv9RlEyMkVa6oolhLfBrgVjrS1b6FLIRnuAKOlmTKA" />
+    <meta name="msvalidate.01" content="921588CB3D90F5D72588667580DC142A" />
+    <meta name="markosweb.com/validation" content="109beb4cbbc0d20ab89e282ef2b9e0eb" />
+    <link rel="shortcut icon" href="http://static.tumblr.com/vowtf1z/wcilw1n7s/untitled-1.png" />
+    <link rel="alternate" type="application/rss+xml" href="{RSS}" />
+    <link rel="stylesheet" href="http://static.tumblr.com/vowtf1z/qBPlw5nqx/style.css">
     <style type="text/css">
         body {
             color: #000;
@@ -21,12 +30,20 @@
             font-size: 14px;
         }
         
-        body a {
+        body a, body a:visited {
             color: #000;
         }
         
+        body a {
+            text-decoration: none;
+        }
+        
+        body a:hover {
+            text-decoration: underline;
+        }
+        
         .post-counter {
-            background: url("img/count-bg.png") no-repeat scroll 0 0 transparent;
+            background: url("http://static.tumblr.com/vowtf1z/XnOlw5nv6/count-bg.png") no-repeat scroll 0 0 transparent;
             color: #FFFFFF;
             font-weight: bold;
             height: 84px;
@@ -62,7 +79,7 @@
         }
         
         header .header-line {
-            background: url("img/header-line.png") repeat-x;
+            background: url("http://static.tumblr.com/vowtf1z/ogHlw5nxb/header-line.png") repeat-x;
             height: 57px;
             margin-left: 248px;
             margin-right: 457px;
@@ -74,7 +91,7 @@
             top: 0;
             right: 0;
             height: 57px;
-            background: url("img/header-line-end.png") no-repeat;
+            background: url("http://static.tumblr.com/vowtf1z/tyzlw5ny9/header-line-end.png") no-repeat;
             width: 457px;
         }
         
@@ -93,22 +110,22 @@
         }
         
         header .header-icons div.rss-icon {
-            background: url("img/ico_rss.png");
+            background: url("http://static.tumblr.com/vowtf1z/qiElw5nzu/ico_rss.png");
         }
         
         header .header-icons div.twitter-icon {
-            background: url("img/ico_twitter.png");
+            background: url("http://static.tumblr.com/vowtf1z/AkTlw5o08/ico_twitter.png");
         }
         
         header .header-icons div.google-plus-icon {
-            background: url("img/ico_g.png");
+            background: url("http://static.tumblr.com/vowtf1z/7CYlw5nz6/ico_g.png");
         }
         
         .sidebar {
             float: left;
             width: 210px;
             height: 710px;
-            background: url("img/sidebar-bg.png") no-repeat;
+            background: url("http://static.tumblr.com/vowtf1z/rkMlw5o3b/sidebar-bg.png") no-repeat;
         }
         
         .sidebar nav {
@@ -122,7 +139,7 @@
         }
         
         .sidebar ul li.active {
-            background: url("img/menu_active.png") no-repeat -12px 1px;
+            background: url("http://static.tumblr.com/vowtf1z/e9Rlw5o17/menu_active.png") no-repeat -12px 1px;
         }
         
         .sidebar ul li a {
@@ -155,9 +172,17 @@
         }
         
         .post .post-frame {
-            width: 338px;
-            height: 498px;
-            background: url("img/post-frame.png") no-repeat;
+            background: url("http://static.tumblr.com/vowtf1z/u49lw5o25/post-frame.png") no-repeat;
+            height: 480px;
+            padding: 8px;
+            width: 320px;
+        }
+        
+        .post .post-frame img {
+            margin: 0;
+            padding: 0;
+            max-width: 100%;
+            max-height: 100%;
         }
         
         .post .post-info .logo {
@@ -169,11 +194,11 @@
         }
         
         .post .post-info .apple-logo {
-            background: url("img/apple-logo.png") no-repeat;
+            background: url("http://static.tumblr.com/vowtf1z/VBklw5ntj/apple-logo.png") no-repeat;
         }
         
         .post .post-info .show-all {
-            background: url("img/show-all.png") no-repeat scroll 0 -8px transparent;
+            background: url("http://static.tumblr.com/vowtf1z/XeWlw5o2q/show-all.png") no-repeat scroll 0 -8px transparent;
             float: right;
             margin-top: 8px;
             padding-left: 30px;
@@ -189,6 +214,10 @@
         
         .post .post-info .caption p {
             margin: 0;
+        }
+        
+        .post .post-info .tags {
+            display: none;
         }
         
         .footer {
@@ -217,11 +246,11 @@
             left: 1px;
             right: 144px;
             height: 58px;
-            background: url("img/footer-line.png") repeat-x;
+            background: url("http://static.tumblr.com/vowtf1z/L6Slw5nw2/footer-line.png") repeat-x;
         }
         
         .footer .footer-line-end {
-            background: url("img/footer-line-end.png") no-repeat;
+            background: url("http://static.tumblr.com/vowtf1z/Xholw5nws/footer-line-end.png") no-repeat;
             height: 58px;
             position: absolute;
             right: 0;
@@ -240,15 +269,19 @@
             top: 68px;
         }
     </style>
+    <script type="text/javascript" src="http://static.tumblr.com/vowtf1z/nJOlw5ocw/modernizr-2.0.6.min.js"></script>
 </head>
 <body>
     <div class="post-counter">
-        <span class="label">250 Pttrns</span>
+        <script type="text/javascript" src="http://inspired-ui.appspot.com/posts"></script>
+        <span class="label">
+            <script type="text/javascript">                if (window.postCount) { document.write(postCount); }</script>
+            Pttrns</span>
     </div>
     <div id="container">
         <header>
             <a href="/">
-                <img src="img/logo.png" alt="logo" /></a>
+                <img src="http://static.tumblr.com/vowtf1z/dvMlw5o0m/logo.png" alt="logo" /></a>
             <div class="header-line">
             </div>
             <div class="header-icons">
@@ -262,8 +295,9 @@
             <div class="header-line-end">
             </div>
             <div class="header-icons">
-                <a href="#" class="rss-icon"></a><a href="#" class="twitter-icon"></a><a href="#"
-                    class="google-plus-icon"></a>
+                <a href="{RSS}" class="rss-icon" title="RSS"></a><a href="http://twitter.com/inspiredUI"
+                    class="twitter-icon" title="Twitter"></a><a href="https://plus.google.com/106093281651739143736"
+                        class="google-plus-icon" title="Google+"></a>
             </div>
         </header>
         <div>
@@ -301,23 +335,23 @@
                 </nav>
             </aside>
             <section class="posts">
+                {block:Posts}
+                {block:Photo}
                 <div class="post">
                     <div class="post-frame">
+                    <img src="{block:IndexPage}{PhotoURL-500}{/block:IndexPage}" alt="{PhotoAlt}">
                     </div>
                     <div class="post-info">
-                        <div class="logo apple-logo">
+                        <div class="logo">
                         </div>
-                        <a class="show-all" href="#see-all">See all</a>
+                        <a class="show-all" href="#show-all" title="See all images fot that application">See all</a>
                         <div class="caption">
-                            <p>
-                                Kliptomania</p>
-                        </div>
+                            {Caption}</div>
+                        <span class="tags">{block:Tags}{Tag}|{block:Tags}</span>
                     </div>
                 </div>
-                <div class="post">
-                    <div class="post-frame">
-                    </div>
-                </div>
+                {/block:Photo}
+                {/block:Posts}
             </section>
         </div>
         <footer class="footer">
@@ -325,12 +359,15 @@
             </div>
             <div class="footer-line-end">
             </div>
+            {block:Pagination}
             <div class="pagination">
-                <a href="/page/1">&lt;&nbsp;Previous</a> <a class="jump_page" href="/page/1">2</a>
-                <span class="current_page">3</span> <a class="jump_page" href="/page/3">4</a> <a
-                    class="jump_page" href="/page/4">5</a> <a class="jump_page" href="/page/5">6</a>
-                <a href="/page/3">Next&nbsp;&gt;</a>
+                {block:PreviousPage} <a href="{PreviousPage}">&lt;&nbsp;{lang:Previous}</a> {/block:PreviousPage}
+                {block:JumpPagination length="5"} {block:CurrentPage}<span class="current_page">{PageNumber}</span>{/block:CurrentPage}
+                {block:JumpPage}<a class="jump_page" href="{URL}">{PageNumber}</a>{/block:JumpPage}
+                {/block:JumpPagination} {block:NextPage} <a href="{NextPage}">{lang:Next}&nbsp;&gt;</a>
+                {/block:NextPage}
             </div>
+            {/block:Pagination}
             <div class="share">
                 <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://inspired-ui.com"
                     data-counturl="http://inspired-ui.com" data-text="Find your inspiration. Collection of mobile UI patterns. Check it out on"
@@ -358,18 +395,63 @@
                     $(this).data('icon-element').animate({ marginTop: '+=7' }, 200);
                 }
             );
+
+            // Select current tag
+			var tagName = /^\/tagged\/([^/]+)(\/|$)/i.exec(window.location.pathname);
+			if (tagName) {
+				tagName = tagName[1];
+				tagName = tagName.replace(/\+/g, '_');
+				$('#tags>li>a[href^="/tagged/' + tagName + '"]').parent().addClass('active');
+			}
+
+            $('span.tags').each(function () {
+                var $this = $(this);
+                var tags = $this.text().toLowerCase().split('|');
+                
+				// Process platform tag
+            
+				var platform = 'apple';
+                if ($.inArray('android', tags) > -1) {
+                    platform = 'android';
+                } else if ($.inArray('wp7', tags) > -1) {
+                    platform = 'wp7';
+                }
+				
+				$('div.logo', $this.parent()).addClass(platform + '-logo');
+
+				
+				// Process application tag
+				$.each(tags, function(index, tag) {
+					if (/^app (.*)$/i.test(tag)) {
+						var app = /^app (.*)$/i.exec(tag)[1];
+						if ($.inArray(app, tags)) {
+							tag = app;
+						}
+						tag = tag.toLowerCase();
+						
+						// Check not on the "Show all" page
+						if (window.location.pathname.toLowerCase().indexOf('/tagged/' + tag) == -1) {
+							$('a.show-all', $this.parent())
+								.attr('href', '/tagged/' + tag.replace(/ /, '_'))
+								//.attr('title', 'All "' + app + '" images')
+								.show();
+						}
+					}
+				});
+				
+            });
         }); 
     </script>
     <script type="text/javascript">
-        var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
-        // Change UA-XXXXX-X to be your site's ID 
-        (function (d, t) {
-            var g = d.createElement(t),
-            s = d.getElementsByTagName(t)[0];
-            g.async = 1;
-            g.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
-            s.parentNode.insertBefore(g, s);
-        } (document, 'script')); 
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-27235580-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
     </script>
 </body>
 </html>
