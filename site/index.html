@@ -168,7 +168,7 @@
             display: inline-block;
             vertical-align: top;
             margin-right: 22px;
-            margin-bottom: 25px;
+            margin-bottom: 50px;
         }
         
         .post .post-frame {
@@ -204,6 +204,7 @@
             padding-left: 30px;
             padding-right: 2px;
             text-decoration: none;
+            display: none;
         }
         
         .post .post-info .caption {
@@ -223,6 +224,7 @@
         .footer {
             position: relative;
             margin-left: 240px;
+            min-width: 465px;
             height: 100px;
         }
         
@@ -339,7 +341,7 @@
                 {block:Photo}
                 <div class="post">
                     <div class="post-frame">
-                    <img src="{block:IndexPage}{PhotoURL-500}{/block:IndexPage}" alt="{PhotoAlt}">
+                        <img src="{PhotoURL-500}" alt="{PhotoAlt}">
                     </div>
                     <div class="post-info">
                         <div class="logo">
@@ -373,6 +375,7 @@
                     data-counturl="http://inspired-ui.com" data-text="Find your inspiration. Collection of mobile UI patterns. Check it out on"
                     data-count="horizontal" data-via="inspiredui">Tweet</a>
                 <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+                <g:plusone size="medium"></g:plusone>
             </div>
             <div class="copyright">
                 &copy;&nbsp;2011&nbsp;&mdash;&nbsp;Design by Paulart</div>
@@ -433,7 +436,6 @@
 						if (window.location.pathname.toLowerCase().indexOf('/tagged/' + tag) == -1) {
 							$('a.show-all', $this.parent())
 								.attr('href', '/tagged/' + tag.replace(/ /, '_'))
-								//.attr('title', 'All "' + app + '" images')
 								.show();
 						}
 					}
@@ -441,6 +443,13 @@
 				
             });
         }); 
+    </script>
+    <script type="text/javascript">
+        (function () {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/plusone.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
     </script>
     <script type="text/javascript">
         var _gaq = _gaq || [];
