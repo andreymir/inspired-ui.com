@@ -29,6 +29,9 @@ api_key=aL7rcud5nU6jHkBPn4GZ4tO9a8pnXgfjbYtXLpSsd6MYFDH7h0'
 	logging.info('New post count: %s', count)
 	return count
 
+class RedirectHandler(webapp2.RequestHandler):
+	def get(self):
+		self.redirect('http://inspired-ui.com')
 
 class MainHandler(webapp2.RequestHandler):
 	def get(self):
@@ -46,4 +49,4 @@ class UpdateHandler(webapp2.RequestHandler):
 		self.response.out.write(count)
 
 
-app = webapp2.WSGIApplication([('/posts', MainHandler), ('/posts/update', UpdateHandler)], debug=True)
+app = webapp2.WSGIApplication([('/posts', MainHandler), ('/posts/update', UpdateHandler), ('/', RedirectHandler)], debug=True)
