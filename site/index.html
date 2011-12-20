@@ -279,10 +279,7 @@
 </head>
 <body>
     <div class="post-counter">
-        <script type="text/javascript" src="http://inspired-ui.appspot.com/posts"></script>
-        <span class="label">
-            <script type="text/javascript">                if (window.postCount) { document.write(postCount); }</script>
-            Pttrns</span>
+        <span class="label"></span>
     </div>
     <div id="container">
         <header>
@@ -386,8 +383,13 @@
         </footer>
     </div>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://inspired-ui.appspot.com/posts"></script>
     <script type="text/javascript">
         $(function () {
+            if (window.postCount) {
+                $('div.post-counter > .label').text(postCount + ' Pttrns');
+            }
+
             var $icons = $('header .header-icons div');
             var $icon_links = $('header .header-icons a').each(function (index) {
                 $(this).data('icon-element', $icons.eq(index));
