@@ -16,18 +16,33 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta property="og:url" content="http://inspired-ui.com/" />
     <meta property="og:title" content="Mobile UI patterns | Find your inspiration" />
-    <meta property="og:description" content="A collection of mobile UI patterns." />
+    <meta property="og:image" content="http://static.tumblr.com/vowtf1z/wrwlz46qd/logo200x200.png" />
+    <meta property="og:description" content="The biggest collection of mobile UI patterns in the world!" />
+    <meta property="og:type" content="website">
     <meta name="google-site-verification" content="pdv9RlEyMkVa6oolhLfBrgVjrS1b6FLIRnuAKOlmTKA" />
-    <meta name="msvalidate.01" content="921588CB3D90F5D72588667580DC142A" />
-    <meta name="markosweb.com/validation" content="109beb4cbbc0d20ab89e282ef2b9e0eb" />
+    <meta property="fb:admins" content="1231801492" />
     <link rel="shortcut icon" href="http://static.tumblr.com/vowtf1z/wcilw1n7s/untitled-1.png" />
     <link rel="alternate" type="application/rss+xml" href="{RSS}" />
     <link rel="stylesheet" href="http://static.tumblr.com/vowtf1z/qBPlw5nqx/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Share' rel='stylesheet' type='text/css'>
     <style type="text/css">
+    
+        body .one .bsa_it_ad { background: transparent; border: none; font-family: inherit;  margin: 50px 0 0 10px; text-align: left; }
+        
+        body .one .bsa_it_ad:hover img { -moz-box-shadow: 0 0 3px #000; -webkit-box-shadow: 0 0 3px #000; box-shadow: 0 0 3px #000; }
+        
+        body .one .bsa_it_ad .bsa_it_i { display: block; padding: 0; float: none; margin: 0 0 5px; }
+        
+        body .one .bsa_it_ad .bsa_it_i img { padding: 0; border: none; }
+        body .one .bsa_it_ad .bsa_it_t { padding: 6px 0; }
+        body .one .bsa_it_ad .bsa_it_d { padding: 0; font-size: 12px; color: #333; }
+        body .one .bsa_it_p { display: none; }
+        body #bsap_aplink, body #bsap_aplink:hover { display: block; font-size: 10px; margin: 0px 25px 0; text-align: left; }
+
         body {
             color: #000;
-            font-family: Comic Sans MS;
-            font-size: 14px;
+            font-family: 'Share', cursive;
+            font-size: 15px;
         }
         
         body a, body a:visited {
@@ -40,7 +55,9 @@
         
         body a:hover {
             text-decoration: underline;
-        }
+        }  
+       
+        
         
         .post-counter {
             background: url("http://static.tumblr.com/vowtf1z/XnOlw5nv6/count-bg.png") no-repeat scroll 0 0 transparent;
@@ -171,10 +188,11 @@
             margin-bottom: 50px;
         }
         
-        .post .post-frame {
-            background: url("http://static.tumblr.com/vowtf1z/u49lw5o25/post-frame.png") no-repeat;
+        .post .post-frame {            
+            background-color: black;
+            border-radius: 7px;
             height: 480px;
-            padding: 8px;
+            padding: 3px;
             width: 320px;
         }
         
@@ -278,6 +296,27 @@
     <script type="text/javascript" src="http://static.tumblr.com/vowtf1z/nJOlw5ocw/modernizr-2.0.6.min.js"></script>
 </head>
 <body>
+   <!-- AdPacks.com Ad Code -->
+    <script type="text/javascript">
+    (function(){
+      var bsa = document.createElement('script');
+         bsa.type = 'text/javascript';
+         bsa.async = true;
+         bsa.src = '//s3.buysellads.com/ac/bsa.js';
+      (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);
+    })();
+    </script>
+    <!-- End AdPacks.com Ad Code -->
+    <!-- Facebook Recomment Button -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <!-- End of Facebook Recomment Button-->
     <div class="post-counter">
         <span class="label"></span>
     </div>
@@ -336,7 +375,12 @@
                         <li><a href="/tagged/walk_throughts">Walk throughts</a></li>
                     </ul>
                 </nav>
+                <!-- AdPacks Zone Code -->
+                <div id="bsap_1272191" class="bsarocks bsap_8e5216f32ee94ec078fbee57c8dd104d"></div>
+                <a href="http://adpacks.com/" id="bsap_aplink">ads by Ad Packs</a>
+                <!-- End AdPacks Zone Code -->
             </aside>
+            
             <section class="posts">
                 {block:Posts}
                 {block:Photo}
@@ -377,6 +421,7 @@
                     data-count="horizontal" data-via="inspiredui">Tweet</a>
                 <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>                
                 <div class="g-plusone" data-size="medium" data-href="http://inspired-ui.com"></div>
+                <div class="fb-like" data-href="http://inspired-ui.com" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
             </div>
             <div class="copyright">
                 &copy;&nbsp;2011&nbsp;&mdash;&nbsp;Design by Paulart</div>
@@ -406,7 +451,7 @@
             );
 
             // Select current tag
-			var tagName = /^\/tagged\/([^/]+)(\/|$)/i.exec(window.location.pathname);
+    		var tagName = /^\/tagged\/([^/]+)(\/|$)/i.exec(window.location.pathname);
 			if (tagName) {
 				tagName = tagName[1];
 				tagName = tagName.replace(/\+/g, '_');
@@ -425,10 +470,10 @@
                 } else if ($.inArray('wp7', tags) > -1) {
                     platform = 'wp7';
                 }
-				
+
 				$('div.logo', $this.parent()).addClass(platform + '-logo');
 
-				
+
 				// Process application tag
 				$.each(tags, function(index, tag) {
 					if (/^app (.*)$/i.test(tag)) {
@@ -437,7 +482,7 @@
 							tag = app;
 						}
 						tag = tag.toLowerCase();
-						
+
 						// Check not on the "Show all" page
 						if (window.location.pathname.toLowerCase().indexOf('/tagged/' + tag) == -1) {
 							$('a.show-all', $this.parent())
@@ -446,7 +491,7 @@
 						}
 					}
 				});
-				
+
             });
         }); 
     </script>
